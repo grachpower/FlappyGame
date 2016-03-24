@@ -37,7 +37,7 @@ function accept(req, res) {
                 res.write(JSON.stringify(topten));
             }
             res.end();
-        }, 90);
+        }, 350);
     }
 
     // if (req.url == '/CHICKEN/index.html') {
@@ -118,7 +118,7 @@ function selectUsers(){
     setTimeout(function () {
         // console.log(resulting);
         selectUsers.items = resulting;
-    }, 30);
+    }, 50);
 }
 selectUsers.items;
 

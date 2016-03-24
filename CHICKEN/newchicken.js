@@ -160,7 +160,7 @@ playingState.prototype = {
 
 	//add chicken vertical speed
 	jump: function () {
-		this.chicken.body.velocity.y = -300;
+		this.chicken.body.velocity.y = -370;
 	},
 
 	//this increment score & show this
@@ -253,7 +253,7 @@ mainMenuState.prototype = {
 				this.deftextheight += 20;
 				if (i == topUsers.length-1) i = 10;
 			};
-		}, 200);
+		}, 600);
 
 		this.jumpkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.jumpkey.onDown.add(function () {
