@@ -212,7 +212,7 @@ mainMenuState.prototype = {
 		});
 
 		//add my references
-		this.game.add.text(236, 505, 'FOLLOW ME:', {
+		this.game.add.text(250, 505, 'FOLLOW ME:', {
 			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
@@ -339,7 +339,7 @@ startUpState.prototype = {
 		});
 
 		//add my references
-		this.game.add.text(236, 505, 'FOLLOW ME:', {
+		this.game.add.text(250, 505, 'FOLLOW ME:', {
 			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
