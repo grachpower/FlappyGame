@@ -14,7 +14,6 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-
 function accept(req, res) {
     // console.log(req.url);
 
@@ -57,7 +56,7 @@ function accept(req, res) {
         req.url = "/CHICKEN/newchicken.js";
         file.serve(req, res);
     }
-    if(req.url == "/assets/narutomini.png" || req.url == "/assets/ground.png" || req.url == "/assets/cloudnew.png" || req.url == "/assets/pipe2.png" || req.url == "/assets/button.png") {
+    if(req.url == "/assets/narutomini.png" || req.url == "/assets/ground.png" || req.url == "/assets/cloudnew.png" || req.url == "/assets/pipe2.png" || req.url == "/assets/button.png" || req.url == "/assets/scoreBack.png") {
         if (req.url == "/assets/narutomini.png"){
             req.url = "/CHICKEN/assets/narutomini.png";
             file.serve(req, res);
@@ -78,6 +77,11 @@ function accept(req, res) {
             req.url = "/CHICKEN/assets/button.png";
             file.serve(req, res);
         }
+        if (req.url == "/assets/scoreBack.png"){
+            req.url = "/CHICKEN/assets/scoreBack.png";
+            file.serve(req, res);
+        }
+
     }
 
 }
