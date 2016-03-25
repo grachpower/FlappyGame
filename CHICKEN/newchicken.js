@@ -182,16 +182,8 @@ mainMenuState.prototype = {
 	},
 
 	create: function () {
-		// this.chicken = this.game.add.sprite(270, 270, 'chicken');
-		// this.chicken.frame = 1;
 
 		this.scoreBack = this.game.add.sprite(175, 100, 'scoreBack');
-
-		// topScoreText = this.game.add.text(190, 100, 'Record: ' + topScore, {
-		// 	fontSize: '40px',
-		// 	fontFamily: 'Times',
-		// 	fill: 'blue',
-		// });
 
 		if (lastScore > 0) {
 			this.game.add.text(194, 70, 'Your last score: ' + lastScore, {
@@ -272,15 +264,18 @@ mainMenuState.prototype = {
 
 		this.jumpkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.jumpkey.onDown.add(function () {
-			this.game.state.start('playingState');
+			setTimeout(function () {
+				this.game.state.start('playingState');
+			}, 300)
 		}, this);
-
 
 	},
 
 	update: function () {
 		if (this.input.activePointer.isDown) {
-			this.game.state.start('playingState');
+			setTimeout(function () {
+				this.game.state.start('playingState');
+			}, 300)
 		};
 	},
 

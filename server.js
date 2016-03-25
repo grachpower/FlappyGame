@@ -116,7 +116,7 @@ function updateUser(name, score){
 
 function selectUsers(){
     var resulting;
-    connection.query('SELECT * FROM userscores', function (err, result) {
+    connection.query('SELECT * FROM userscores ORDER BY score DESC', function (err, result) {
         resulting = result;
     });
     setTimeout(function () {
