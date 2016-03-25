@@ -43,10 +43,16 @@ function accept(req, res) {
     //     selectUsers();
     //     file.serve(req, res);
     // }
-    if (req.url == '/') {
+    if (req.url == '/' || req.url == '/favicon.png') {
         selectUsers();
-        req.url = "/CHICKEN/index.html";
-        file.serve(req, res);
+        if (req.url == '/'){
+            req.url = "/CHICKEN/index.html";
+            file.serve(req, res);
+        };
+        if (req.url == '/favicon.png'){
+            req.url = "/CHICKEN/favicon.png";
+            file.serve(req, res);
+        };
     }
     if(req.url == '/phaser.js') {
         req.url = "/CHICKEN/phaser.js";
