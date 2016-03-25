@@ -212,8 +212,8 @@ mainMenuState.prototype = {
 		});
 
 		//add my references
-		this.game.add.text(260, 505, 'FIND ME ON', {
-			fontSize: '12px',
+		this.game.add.text(256, 505, 'FIND ME ON:', {
+			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
@@ -339,8 +339,8 @@ startUpState.prototype = {
 		});
 
 		//add my references
-		this.game.add.text(260, 505, 'FIND ME ON', {
-			fontSize: '12px',
+		this.game.add.text(256, 505, 'FIND ME ON:', {
+			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
