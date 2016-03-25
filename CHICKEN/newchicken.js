@@ -54,13 +54,13 @@ playingState.prototype = {
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 570, 'ground');
+		this.ground1 = this.grounds.create(0, 575, 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 570, 'ground');
+		this.ground2 = this.grounds.create(600, 575, 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -121,7 +121,7 @@ playingState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 570, 'ground');
+		this.ground = this.grounds.create(600, 575, 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
@@ -238,13 +238,13 @@ mainMenuState.prototype = {
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 570, 'ground');
+		this.ground1 = this.grounds.create(0, 575, 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 570, 'ground');
+		this.ground2 = this.grounds.create(600, 575, 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -306,7 +306,7 @@ mainMenuState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 570, 'ground');
+		this.ground = this.grounds.create(600, 575, 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
@@ -368,13 +368,13 @@ startUpState.prototype = {
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 570, 'ground');
+		this.ground1 = this.grounds.create(0, 575, 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 570, 'ground');
+		this.ground2 = this.grounds.create(600, 575, 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -566,7 +566,7 @@ startUpState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 570, 'ground');
+		this.ground = this.grounds.create(600, 575, 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
