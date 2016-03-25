@@ -211,6 +211,23 @@ mainMenuState.prototype = {
 			fill: 'blue',
 		});
 
+		//add my references
+		this.game.add.text(260, 505, 'FIND ME ON', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
+		this.game.add.text(225, 525, 'github.com/grachpower', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
+		this.game.add.text(226, 545, 'http://vk.com/i32646179', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
+
 		//create clouds
 		this.clouds = this.game.add.group();
 		this.clouds.enableBody = true;
@@ -321,7 +338,24 @@ startUpState.prototype = {
 			fill: 'RED',
 		});
 
+		//add my references
+		this.game.add.text(260, 505, 'FIND ME ON', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
+		this.game.add.text(225, 525, 'github.com/grachpower', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
+		this.game.add.text(226, 545, 'http://vk.com/i32646179', {
+			fontSize: '12px',
+			fontFamily: 'Roboto',
+			fill: 'blue',
+		});
 
+		//add clickable button
 		this.button = this.game.add.button(250, 300, 'buttonUp', this.actionOnClick, this);
 
 		//create clouds
