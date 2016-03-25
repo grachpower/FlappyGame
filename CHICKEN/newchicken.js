@@ -543,6 +543,10 @@ startUpState.prototype = {
 			this.inputName.text = userName;
 			this.inputName.x = this.inputName.x + 10;
 		}, this);
+		this.keyEnter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+		this.keyEnter.onDown.add(function () {
+			this.game.state.start('mainMenuState');
+		}, this);
 
 	},
 
