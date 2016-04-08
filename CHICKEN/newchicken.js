@@ -3,6 +3,7 @@ var topScore = 0;
 var topScoreText;
 var lastScore = 0;
 var userName = "GUEST";
+var isSpacePressed = false;
 
 //game inside prototype
 playingState = function () {};
@@ -137,6 +138,7 @@ playingState.prototype = {
 		this.chicken.frame = 3;
 		this.jump();
 		this.chicken.body.velocity.x = -400;
+
 		//------------------ajax bad down------------------//
 		//set user paratemers
 		var xhr = new XMLHttpRequest();
@@ -173,6 +175,7 @@ playingState.prototype = {
 //main menu prototype
 mainMenuState = function () {};
 mainMenuState.prototype = {
+
 	preload: function () {
 		this.game.stage.backgroundColor = '#71c5cf';
 		this.game.load.spritesheet('chicken', 'assets/narutomini.png', 56, 54);
@@ -282,8 +285,15 @@ mainMenuState.prototype = {
 		this.jumpkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.jumpkey.onDown.add(function () {
 			setTimeout(function () {
-				this.game.state.start('playingState');
-			}, 300)
+				if (!isSpacePressed){
+					this.game.state.start('playingState');
+					isSpacePressed = true;
+					setTimeout(function () {
+						isSpacePressed = false;
+					}, 600);
+				}
+
+			}, 600)
 		}, this);
 
 	},
@@ -316,15 +326,26 @@ mainMenuState.prototype = {
 
 startUpState = function (){};
 startUpState.prototype = {
+
 	preload: function () {
 		this.game.stage.backgroundColor = '#71c5cf';
 		this.game.load.spritesheet('chicken', 'assets/narutomini.png', 56, 54);
 		this.game.load.image('cloud', 'assets/cloudnew.png');
 		this.game.load.image('ground', 'assets/ground.png');
 		this.game.load.image('buttonUp', 'assets/button.png');
+
+		this.game.load.audio('ridersSound', 'assets/riders.mp3')
 	},
 
 	create: function () {
+
+		this.music = game.add.audio('ridersSound');
+		this.music.play();
+
+		setInterval(function () {
+			this.music = game.add.audio('ridersSound');
+			this.music.play();
+		}, 420000);
 
 		this.game.add.text(180, 170, 'TYPE UR NAME', {
 			fontSize: '30px',

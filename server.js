@@ -54,6 +54,10 @@ function accept(req, res) {
             file.serve(req, res);
         };
     }
+    if(req.url == "/assets/riders.mp3"){
+        req.url = "/CHICKEN/assets/riders.mp3";
+        file.serve(req, res);
+    };
     if(req.url == '/phaser.js') {
         req.url = "/CHICKEN/phaser.js";
         file.serve(req, res);
