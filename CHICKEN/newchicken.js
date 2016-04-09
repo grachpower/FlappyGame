@@ -23,7 +23,7 @@ playingState.prototype = {
 
 		//init chicken
 		this.chicken = this.game.add.sprite(270, 270, 'chicken');
-		//enable chicken gravity
+		//enable chicken physics
 		this.game.physics.arcade.enable(this.chicken);
 		//set chicken gravity Y
 		this.chicken.body.gravity.y = 1000;
@@ -168,7 +168,7 @@ playingState.prototype = {
 	//this increment score & show this
 	calcScore: function () {
 		this.score += 10;
-		this.scoreText.text = 'Score: ' + this.score;
+		this.scoreText.text = 'score: ' + this.score;
 	},
 };
 
@@ -185,6 +185,8 @@ mainMenuState.prototype = {
 	},
 
 	create: function () {
+
+		this.timerIndex = 2;
 
 		this.scoreBack = this.game.add.sprite(175, 100, 'scoreBack');
 
@@ -229,6 +231,11 @@ mainMenuState.prototype = {
 			fontSize: '12px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
+		});
+
+		this.timerText = this.game.add.text(280, 447, '', {
+			fontSize: '60px',
+			fill: 'red'
 		});
 
 		//create clouds
@@ -281,21 +288,29 @@ mainMenuState.prototype = {
 				if (i == topUsers.length-1) i = 10;
 			};
 		}, 600);
+		;
 
 		this.jumpkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.jumpkey.onDown.add(function () {
-			setTimeout(function () {
-				if (!isSpacePressed){
+
+			if (!isSpacePressed){
+				isSpacePressed = true;
+				this.timerText.text = '2';
+				this.game.time.events.loop(950, this.startTimer, this, false);
+				setTimeout(function () {
 					this.game.state.start('playingState');
-					isSpacePressed = true;
 					setTimeout(function () {
 						isSpacePressed = false;
-					}, 600);
-				}
-
-			}, 600)
+					}, 1950);
+				}, 2000);
+			}
 		}, this);
 
+	},
+
+	startTimer: function () {
+		this.timerIndex--;
+		this.timerText.text = this.timerIndex;
 	},
 
 	update: function () {
