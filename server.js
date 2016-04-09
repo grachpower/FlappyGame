@@ -62,6 +62,10 @@ function accept(req, res) {
         req.url = "/CHICKEN/phaser.js";
         file.serve(req, res);
     }
+    if(req.url == '/assets/loader.png') {
+        req.url = "/CHICKEN/assets/loader.png";
+        file.serve(req, res);
+    }
     if(req.url == '/newchicken.js') {
         req.url = "/CHICKEN/newchicken.js";
         file.serve(req, res);

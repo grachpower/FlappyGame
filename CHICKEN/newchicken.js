@@ -182,6 +182,7 @@ mainMenuState.prototype = {
 		this.game.load.image('cloud', 'assets/cloudnew.png');
 		this.game.load.image('ground', 'assets/ground.png');
 		this.game.load.image('scoreBack', 'assets/scoreBack.png');
+		this.game.load.image('loader', 'assets/loader.png');
 	},
 
 	create: function () {
@@ -259,6 +260,21 @@ mainMenuState.prototype = {
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
 		};
+
+		//add stat loader animation
+		// this.loaders = this.game.add.group();
+		// this.loaders.enableBody = true;
+		// this.loader = this.loaders.create(300, 250, 'loader');
+		// // setTimeout(function () {
+		// 	// this.loader.kill;
+		// 	// this.loaders.reset();
+		// // }, 600)
+		// this.game.time.events.loop(10, updateLoader,this);
+		//
+		// function updateLoader() {
+		// 		this.loader.angle += 6;
+		// };
+		//tak tak tak
 
 		//------------------ajax------------------//
 		var xhr = new XMLHttpRequest();
