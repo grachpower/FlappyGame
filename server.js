@@ -2,7 +2,7 @@ var http = require('http');
 var url = require('url');
 var static = require('node-static');
 var file = new static.Server('.', {
-    cache: 0
+    cache: 1
 });
 
 var mysql = require('mysql');

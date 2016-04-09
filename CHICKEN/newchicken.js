@@ -260,7 +260,7 @@ mainMenuState.prototype = {
 			this.ground2.kill;
 		};
 
-		//------------------ajax bad down------------------//
+		//------------------ajax------------------//
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', '/getUsers', true);
 		xhr.send();
@@ -274,7 +274,7 @@ mainMenuState.prototype = {
 				// console.log(xhr.responseText);
 			}
 		};
-		//------------------ajax bad up------------------//
+		//------------------ajax------------------//
 		setTimeout(function (){
 			// console.log(topUsers);
 			this.deftextheight = 150;
@@ -288,11 +288,10 @@ mainMenuState.prototype = {
 				if (i == topUsers.length-1) i = 10;
 			};
 		}, 600);
-		;
 
 		this.jumpkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		this.jumpkey.onDown.add(function () {
-
+			//here set 2sec to load stats & start timer on game start
 			if (!isSpacePressed){
 				isSpacePressed = true;
 				this.timerText.text = '2';
@@ -305,7 +304,6 @@ mainMenuState.prototype = {
 				}, 2000);
 			}
 		}, this);
-
 	},
 
 	startTimer: function () {
