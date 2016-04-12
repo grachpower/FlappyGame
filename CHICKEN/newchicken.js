@@ -624,7 +624,6 @@ startUpState.prototype = {
 	},
 
 	actionOnClick: function() {
-	// background.visible =! background.visible;
 		this.game.state.start('mainMenuState');
 	}
 

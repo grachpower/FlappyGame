@@ -32,9 +32,7 @@ function accept(req, res) {
         setTimeout(function () {
             var topten = selectUsers.items;
             // console.log(topten);
-            for (var i = 0; i < 1; i++){
                 res.write(JSON.stringify(topten));
-            }
             res.end();
         }, 350);
     }
