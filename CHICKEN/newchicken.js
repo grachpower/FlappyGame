@@ -1,3 +1,4 @@
+// var game = new Phaser.Game( window.innerWidth, window.innerHeight, Phaser.AUTO, '');
 var game = new Phaser.Game( window.innerWidth, window.innerHeight, Phaser.AUTO, '');
 var topScore = 0;
 var topScoreText;
@@ -22,7 +23,7 @@ playingState.prototype = {
 		this.score = 0;
 
 		//init chicken
-		this.chicken = this.game.add.sprite(270, 270, 'chicken');
+		this.chicken = this.game.add.sprite(((window.innerWidth-56)/2), 270, 'chicken');
 		//enable chicken physics
 		this.game.physics.arcade.enable(this.chicken);
 		//set chicken gravity Y
@@ -50,18 +51,18 @@ playingState.prototype = {
 		this.clouds.enableBody = true;
 		this.game.time.events.loop(1500, this.startClouds, this, false);
 
-		//create grounds group
+		//create ground
 		this.grounds = this.game.add.group();
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 575, 'ground');
+		this.ground1 = this.grounds.create(0, (window.innerHeight-30), 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 575, 'ground');
+		this.ground2 = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -107,14 +108,14 @@ playingState.prototype = {
 
 		for (var i = 0; i < 8; i++) {
 			if (i != hole && i !== (hole + 1)) {
-				this.add_one_pipe(600, i * 80);
+				this.add_one_pipe(window.innerWidth, i * 80);
 			};
 		};
 	},
 
 	startClouds: function () {
 		var rate = Math.floor(Math.random() * 100) + 100;
-		this.cloud = this.clouds.create(600, 15, 'cloud');
+		this.cloud = this.clouds.create(window.innerWidth, 15, 'cloud');
 		this.cloud.body.velocity.x = -rate;
 		if (this.cloud.inWorld == false) {
 			this.cloud.kill;
@@ -122,7 +123,7 @@ playingState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 575, 'ground');
+		this.ground = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
@@ -189,7 +190,7 @@ mainMenuState.prototype = {
 
 		this.timerIndex = 2;
 
-		this.scoreBack = this.game.add.sprite(175, 100, 'scoreBack');
+		this.scoreBack = this.game.add.sprite(((window.innerWidth-250)/2), 100, 'scoreBack');
 
 		if (lastScore > 0) {
 			this.game.add.text(194, 70, 'Your last score: ' + lastScore, {
@@ -199,36 +200,36 @@ mainMenuState.prototype = {
 			});
 		};
 
-		this.game.add.text(250, 105, 'TOP TEN', {
+		this.game.add.text(((window.innerWidth-98)/2), 105, 'TOP TEN', {
 			fontSize: '24px',
 			fontFamily: 'Times',
 			fill: '#FFF',
 		});
 
-		this.game.add.text(195, 400, userName + ': ' + topScore, {
+		this.game.add.text(((window.innerWidth-192)/2), 400, userName + ': ' + topScore, {
 			fontSize: '20px',
 			fontFamily: 'Times',
 			fill: '#FFF',
 		});
 
-		this.game.add.text(235, 435, 'Tap to start', {
+		this.game.add.text(((window.innerWidth-128)/2), 435, 'Tap to start', {
 			fontSize: '24px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
 
 		//add my references
-		this.game.add.text(250, 505, 'FOLLOW ME:', {
+		this.game.add.text(((window.innerWidth-90)/2), 505, 'FOLLOW ME:', {
 			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
-		this.game.add.text(225, 525, 'github.com/grachpower', {
+		this.game.add.text(((window.innerWidth-136)/2), 525, 'github.com/grachpower', {
 			fontSize: '12px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
-		this.game.add.text(226, 545, 'http://vk.com/i32646179', {
+		this.game.add.text(((window.innerWidth-136)/2), 545, 'http://vk.com/i32646179', {
 			fontSize: '12px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
@@ -249,13 +250,13 @@ mainMenuState.prototype = {
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 575, 'ground');
+		this.ground1 = this.grounds.create(0, (window.innerHeight-30), 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 575, 'ground');
+		this.ground2 = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -337,7 +338,7 @@ mainMenuState.prototype = {
 
 	startClouds: function () {
 		var rate = Math.floor(Math.random() * 100) + 100;
-		this.cloud = this.clouds.create(600, 15, 'cloud');
+		this.cloud = this.clouds.create(window.innerWidth, 15, 'cloud');
 		this.cloud.body.velocity.x = -rate;
 		if (this.cloud.inWorld == false) {
 			this.cloud.kill;
@@ -345,7 +346,7 @@ mainMenuState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 575, 'ground');
+		this.ground = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
@@ -376,37 +377,37 @@ startUpState.prototype = {
 			this.music.play();
 		}, 420000);
 
-		this.game.add.text(180, 170, 'TYPE UR NAME', {
+		this.game.add.text(((window.innerWidth-224)/2), 170, 'TYPE UR NAME', {
 			fontSize: '30px',
 			fontFamily: 'Times',
 			fill: 'blue',
 		});
 
-		this.inputName = this.game.add.text(220, 230, userName, {
+		this.inputName = this.game.add.text(((window.innerWidth-120)/2), 230, userName, {
 			fontSize: '36px',
 			fontFamily: 'Times',
 			fill: 'RED',
 		});
 
 		//add my references
-		this.game.add.text(250, 505, 'FOLLOW ME:', {
+		this.game.add.text(((window.innerWidth-88)/2), 505, 'FOLLOW ME:', {
 			fontSize: '14px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
-		this.game.add.text(225, 525, 'github.com/grachpower', {
+		this.game.add.text(((window.innerWidth-134)/2), 525, 'github.com/grachpower', {
 			fontSize: '12px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
-		this.game.add.text(226, 545, 'http://vk.com/i32646179', {
+		this.game.add.text(((window.innerWidth-134)/2), 545, 'http://vk.com/i32646179', {
 			fontSize: '12px',
 			fontFamily: 'Roboto',
 			fill: 'blue',
 		});
 
 		//add clickable button
-		this.button = this.game.add.button(250, 300, 'buttonUp', this.actionOnClick, this);
+		this.button = this.game.add.button(((window.innerWidth-90)/2), 300, 'buttonUp', this.actionOnClick, this);
 
 		//create clouds
 		this.clouds = this.game.add.group();
@@ -418,13 +419,13 @@ startUpState.prototype = {
 		this.grounds.enableBody = true;
 		this.game.time.events.loop(5000, this.startGround, this);
 		//first ground start on start
-		this.ground1 = this.grounds.create(0, 575, 'ground');
+		this.ground1 = this.grounds.create(0, (window.innerHeight-30), 'ground');
 		this.ground1.body.velocity.x = -200;
 		if (this.ground1.inWorld == false) {
 			this.ground1.kill;
 		};
 		//second ground on start
-		this.ground2 = this.grounds.create(600, 575, 'ground');
+		this.ground2 = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground2.body.velocity.x = -200;
 		if (this.ground2.inWorld == false) {
 			this.ground2.kill;
@@ -608,7 +609,7 @@ startUpState.prototype = {
 
 	startClouds: function () {
 		var rate = Math.floor(Math.random() * 100) + 100;
-		this.cloud = this.clouds.create(600, 15, 'cloud');
+		this.cloud = this.clouds.create(window.innerWidth, 15, 'cloud');
 		this.cloud.body.velocity.x = -rate;
 		if (this.cloud.inWorld == false) {
 			this.cloud.kill;
@@ -616,7 +617,7 @@ startUpState.prototype = {
 	},
 
 	startGround: function () {
-		this.ground = this.grounds.create(600, 575, 'ground');
+		this.ground = this.grounds.create(600, (window.innerHeight-30), 'ground');
 		this.ground.body.velocity.x = -200;
 		if (this.ground.inWorld == false) {
 			this.ground.kill;
