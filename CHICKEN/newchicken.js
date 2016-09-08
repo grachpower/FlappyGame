@@ -193,7 +193,7 @@ mainMenuState.prototype = {
 		this.scoreBack = this.game.add.sprite(((window.innerWidth-250)/2), 100, 'scoreBack');
 
 		if (lastScore > 0) {
-			this.game.add.text(194, 70, 'Your last score: ' + lastScore, {
+			this.game.add.text(((window.innerWidth-250)/2), 70, 'Your last score: ' + lastScore, {
 				fontSize: '24px',
 				fontFamily: 'Times',
 				fill: 'blue',
